@@ -4,4 +4,8 @@
     <string name="title_activity_alarm">AlarmActivity</string>
     <string name="title_activity_call_card">CallCard</string>
     <string name="title_activity_black_screen">BlackScreen</string>
+    <string name="title_activity_lockscreen_message">LockscreenMessage</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_unlocked_message">UnlockedMessage</string>
 </resources>

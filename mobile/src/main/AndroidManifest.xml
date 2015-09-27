@@ -43,6 +43,16 @@
             android:label="@string/title_activity_black_screen"
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
+        <activity
+            android:name=".LockscreenMessage"
+            android:label="@string/title_activity_lockscreen_message"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".UnlockedMessage"
+            android:label="@string/title_activity_unlocked_message"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
     </application>
 
 </manifest>

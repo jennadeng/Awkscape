@@ -59,32 +59,34 @@ public class MainWatchActivity extends AbstractGestureClientActivity {
 
     @Override
     public void onSnap() {
-        Toast.makeText(this,"Snap it up",Toast.LENGTH_LONG).show();
+        Vibrator vibration2 = (Vibrator)this.getSystemService(Context.VIBRATOR_SERVICE);
+        vibration2.vibrate(5000);
+        Toast.makeText(this,"Snap it up",Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void onFlick() {
-        Vibrator vibration2 = (Vibrator)this.getSystemService(Context.VIBRATOR_SERVICE);
-        vibration2.vibrate(2000);
-        Toast.makeText(this,"It's a flick!",Toast.LENGTH_LONG).show();
+        Vibrator vibration3 = (Vibrator)this.getSystemService(Context.VIBRATOR_SERVICE);
+        vibration3.vibrate(2500);
+        Toast.makeText(this,"It's a flick!",Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void onTwist() {
         Vibrator vibration1 = (Vibrator)this.getSystemService(Context.VIBRATOR_SERVICE);
         vibration1.vibrate(200);
-        Toast.makeText(this,"Just twist it",Toast.LENGTH_LONG).show();
+        Toast.makeText(this,"Just twist it",Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void onGestureWindowClosed() {
-        Toast.makeText(this,"Gesture window closed.", Toast.LENGTH_LONG).show();
+        //Toast.makeText(this,"Gesture window closed.", Toast.LENGTH_LONG).show();
     }
 
     //These functions won't be called until you subscribe to the appropriate gestures.
     @Override
     public void onTiltX(float v) {
-        Toast.makeText(this,"TiltX", Toast.LENGTH_LONG).show();
+        Toast.makeText(this,"TiltX", Toast.LENGTH_SHORT).show();
     }
 
     @Override

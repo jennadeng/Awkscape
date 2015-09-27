@@ -4,11 +4,16 @@ import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.media.Ringtone;
+import android.media.RingtoneManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,6 +27,10 @@ public class MainActivity extends AbstractPhoneGestureActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
     }
 
@@ -32,7 +41,7 @@ public class MainActivity extends AbstractPhoneGestureActivity {
 
     @Override
     public void onSnap() {
-        Toast.makeText(this, "Feeling snappy!", Toast.LENGTH_LONG).show();
+        //Toast.makeText(this, "Feeling snappy!", Toast.LENGTH_SHORT).show();
 
         alarmMgr = (AlarmManager) getApplicationContext().getSystemService(Context.ALARM_SERVICE);
         Intent intent = new Intent(getApplicationContext(), AlarmReceiver.class);
@@ -43,14 +52,18 @@ public class MainActivity extends AbstractPhoneGestureActivity {
 
     @Override
     public void onFlick() {
-        Toast.makeText(this,"Flick that thang!",Toast.LENGTH_LONG).show();
-
+        //Toast.makeText(this,"Flick that thang!",Toast.LENGTH_SHORT).show();
+        Uri ringtone = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_RINGTONE);
+        Ringtone r = RingtoneManager.getRingtone(getApplicationContext(), ringtone);
+        r.play();
+        Intent Lockscreenintent = new Intent(this, LockscreenMessage.class);
+        startActivity(Lockscreenintent);
 
     }
 
     @Override
     public void onTwist() {
-        Toast.makeText(this,"Twistin' the night away",Toast.LENGTH_LONG).show();
+       // Toast.makeText(this,"Twistin' the night away",Toast.LENGTH_SHORT).show();
     }
 
 //These functions won't be called until you subscribe to the appropriate gestures
