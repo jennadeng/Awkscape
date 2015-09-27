@@ -1,6 +1,8 @@
 package hackny.awkscape;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.support.wearable.view.BoxInsetLayout;
 import android.view.View;
 import android.widget.TextView;
@@ -62,11 +64,15 @@ public class MainWatchActivity extends AbstractGestureClientActivity {
 
     @Override
     public void onFlick() {
+        Vibrator vibration2 = (Vibrator)this.getSystemService(Context.VIBRATOR_SERVICE);
+        vibration2.vibrate(2000);
         Toast.makeText(this,"It's a flick!",Toast.LENGTH_LONG).show();
     }
 
     @Override
     public void onTwist() {
+        Vibrator vibration1 = (Vibrator)this.getSystemService(Context.VIBRATOR_SERVICE);
+        vibration1.vibrate(200);
         Toast.makeText(this,"Just twist it",Toast.LENGTH_LONG).show();
     }
 
