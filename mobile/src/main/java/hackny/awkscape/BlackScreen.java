@@ -18,19 +18,15 @@ public class BlackScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_black_screen);
-
-
     }
 
-    public void onSnap() {
-        Button backBtn = (Button) findViewById(R.id.backBtn);
-        backBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent startMain = new Intent(getApplicationContext(), MainActivity.class);
-                getApplicationContext().startActivity(startMain);
-            }
-        });;
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent newIntent = new Intent(getApplicationContext(),MainActivity.class);
+        newIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        getApplicationContext().startActivity(newIntent);
+
     }
 
 

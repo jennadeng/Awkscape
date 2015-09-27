@@ -18,6 +18,7 @@ import android.view.WindowManager;
 
 import android.os.Handler;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 
 public class AlarmActivity extends AppCompatActivity {
     private static final int WAKELOCK_TIMEOUT = 60 * 1000;
@@ -28,23 +29,19 @@ public class AlarmActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        super.onCreate(savedInstanceState);
-
         requestWindowFeature(Window.FEATURE_NO_TITLE);
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_alarm);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
-        setContentView(R.layout.activity_alarm);
-
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_alarm);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        //setContentView(R.layout.activity_alarm);
+//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+//        setSupportActionBar(toolbar);
         mediaPlayer = MediaPlayer.create(this, R.raw.ringtone);
         mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
         mediaPlayer.setLooping(true);
         mediaPlayer.start();
-
+/*
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,18 +55,21 @@ public class AlarmActivity extends AppCompatActivity {
 
             }
 
-        });
+        });*/
 
         Button off = (Button) findViewById(R.id.off);
         off.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent newIntent = new Intent(context, BlackScreen.class);
+                stopped = true;
+                mediaPlayer.setLooping(false);
+                mediaPlayer.stop();
+                Intent newIntent = new Intent(getApplicationContext(), BlackScreen.class);
                 newIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 //        final Intent emptyIntent = new Intent();
 //        PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, emptyIntent, PendingIntent.FLAG_UPDATE_CURRENT);
                 //Context context1 = pendingIntent
-                context.startActivity(newIntent);
+                getApplicationContext().startActivity(newIntent);
             }
         });
 
