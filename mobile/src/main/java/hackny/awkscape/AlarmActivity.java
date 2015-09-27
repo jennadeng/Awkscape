@@ -50,12 +50,16 @@ public class AlarmActivity extends AppCompatActivity {
 
         });
 
-        Button backBtn = (Button) findViewById(R.id.backBtn);
-        backBtn.setOnClickListener(new View.OnClickListener() {
+        Button off = (Button) findViewById(R.id.off);
+        off.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view){
-                Intent startMain = new Intent(getApplicationContext(),MainActivity.class);
-                getApplicationContext().startActivity(startMain);
+            public void onClick(View view) {
+                Intent newIntent = new Intent(context, BlackScreen.class);
+                newIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//        final Intent emptyIntent = new Intent();
+//        PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, emptyIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+                //Context context1 = pendingIntent
+                context.startActivity(newIntent);
             }
         });
 

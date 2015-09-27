@@ -2,4 +2,6 @@
     <string name="app_name">"Awkscape "</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_alarm">AlarmActivity</string>
+    <string name="title_activity_call_card">CallCard</string>
+    <string name="title_activity_black_screen">BlackScreen</string>
 </resources>

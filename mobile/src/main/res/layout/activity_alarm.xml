@@ -18,7 +18,7 @@
     <include layout="@layout/content_alarm" />
 
     <Button
-        android:id = "@+id/backBtn"
+        android:id = "@+id/off"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
